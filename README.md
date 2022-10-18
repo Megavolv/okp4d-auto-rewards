@@ -1,7 +1,5 @@
 ## OKP4 automatic rewards and stake
 
-[![Cosmos ecosystem][cosmos-shield]][cosmos-link]
-
 The provided script enable delegators to claim all their staking rewards and reinvest them, to receive compounded interest.
 
 ### Installation
@@ -27,16 +25,15 @@ and expect output such as:
 
 ```
 ======================================================
-Account: testkey1 (local)
-Address: okp4valoper1u376ksxhpytfm63rh699w6as95ekfk2m2py64z
+Account: kiwiwallet (local)
+Address: okp41u376ksxhpytfm63rh699w6as95ekfk2mlx5ntr
 ======================================================
-Account balance:   20000122217uknow
-Available rewards: 23588169uknow
-Net balance:       20023710386uknow
-Reservation:       100000000uknow
+Account balance:      496259uknow
+Available rewards:    1622392uknow
+Net balance:          2118651uknow
+Reservation:          100000uknow
 
-You are about to delegate 19923710386uknow to okp4valoper1u376ksxhpytfm63rh699w6as95ekfk2m2py64z:
-
+You are about to delegate 2018651uknow to okp4valoper1u376ksxhpytfm63rh699w6as95ekfk2m2py64z:
 ```
 
 ### Customize settings (optional)
@@ -47,11 +44,18 @@ If you like, you can use your favorite text editor to change some of the default
 # User settings.
 ##############################################################################
 
+KEYRING_BACKEND=file
 MINIMUM_DELEGATION_AMOUNT="2000000"
 RESERVATION_AMOUNT="100000"
 VALIDATOR="okp4valoper1u376ksxhpytfm63rh699w6as95ekfk2m2py64z"
 
 ##############################################################################
+# Sensible defaults.
+##############################################################################
+
+CHAIN_ID="okp4-nemeton"                                     # Current chain id. Empty means auto-detect.
+NODE="tcp://localhost:27657"  					# Either run a local full node or choose one you trust.
+OKP4BIN=okp4d
 ```
 
 Take care to specify the `RESERVATION_AMOUNT` which is the minimum amount of uatoms that will remain available in your account.

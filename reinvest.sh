@@ -32,7 +32,7 @@ NODE="tcp://localhost:27657"  					# Either run a local full node or choose one 
 GAS_PRICES="0.025uknow"                         # Gas prices to pay for transaction.
 GAS_ADJUSTMENT="1.30"                           # Adjustment for estimated gas
 GAS_FLAGS="--gas auto --gas-prices ${GAS_PRICES} --gas-adjustment ${GAS_ADJUSTMENT}"
-OKP4BIN=./okp4d
+OKP4BIN=okp4d
 ##############################################################################################################################################################
 
 
