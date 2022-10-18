@@ -117,12 +117,12 @@ echo
 if [ "${REWARDS_BALANCE}" -gt 0 ]
 then
     printf "Withdrawing rewards... "
-    echo ${PASSPHRASE} | $OKP4BIN tx distribution withdraw-rewards ${VALIDATOR} --yes --from ${KEY} --sequence ${ACCOUNT_SEQUENCE} --chain-id ${CHAIN_ID} --node ${NODE} ${GAS_FLAGS} --broadcast-mode async
+    echo ${PASSPHRASE} | $OKP4BIN tx distribution withdraw-rewards ${VALIDATOR} --yes --from ${KEY} --keyring-backend=${KEYRING_BACKEND} --sequence ${ACCOUNT_SEQUENCE} --chain-id ${CHAIN_ID} --node ${NODE} ${GAS_FLAGS} --broadcast-mode async
     ACCOUNT_SEQUENCE=$((ACCOUNT_SEQUENCE + 1))
 fi
 
 printf "Delegating... "
-echo ${PASSPHRASE} | $OKP4BIN tx staking delegate ${VALIDATOR} ${DELEGATION_AMOUNT}${DENOM} --yes --from ${KEY} --sequence ${ACCOUNT_SEQUENCE} --chain-id ${CHAIN_ID} --node ${NODE} ${GAS_FLAGS} --broadcast-mode async
+echo ${PASSPHRASE} | $OKP4BIN tx staking delegate ${VALIDATOR} ${DELEGATION_AMOUNT}${DENOM} --yes --from ${KEY} --keyring-backend=${KEYRING_BACKEND} --sequence ${ACCOUNT_SEQUENCE} --chain-id ${CHAIN_ID} --node ${NODE} ${GAS_FLAGS} --broadcast-mode async
 
 echo
 echo "Have a Cosmic day!"
