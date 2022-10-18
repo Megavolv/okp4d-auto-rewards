@@ -14,6 +14,7 @@
 
 KEY=${1}                                  # This is the key you wish to use for signing transactions, listed in first column of "okp4d keys list".
 PASSPHRASE=${2}                           # Only populate if you want to run the script periodically. This is UNSAFE and should only be done if you know what you are doing.
+KEYRING_BACKEND=file 					#
 DENOM="uknow"                           # Coin denominator is uknow. 1 know = 1000000 uknow.
 MINIMUM_DELEGATION_AMOUNT="2000000"    # Only perform delegations above this amount of uknow. Default: 2know.
 RESERVATION_AMOUNT="100000"          # Keep this amount of uknow in account. Default: 0.1know.
@@ -36,7 +37,7 @@ OKP4BIN=./okp4d
 
 
 # Get information about key
-KEY_STATUS=$(echo ${PASSPHRASE} | $OKP4BIN keys show ${KEY} --output json)
+KEY_STATUS=$(echo ${PASSPHRASE} | $OKP4BIN keys show ${KEY} --keyring-backend=${KEYRING_BACKEND} --output json)
 KEY_TYPE=$(echo ${KEY_STATUS} | jq -r ".type")
 
 
